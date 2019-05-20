@@ -17,15 +17,15 @@
 /**
  * Plugin version and other meta-data are defined here.
  *
- * @package     local_autocomplete
- * @copyright   2019 Titus Learning
+ * @package     local_autocomplete2
+ * @copyright   2019 Marcus Green
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'local_autocomplete';
+$plugin->component = 'local_autocomplete2';
 $plugin->release = '0.1.0';
-$plugin->version = 2019051800;
+$plugin->version = 2019051900;
 $plugin->requires = 2018120300;
 $plugin->maturity = MATURITY_ALPHA;

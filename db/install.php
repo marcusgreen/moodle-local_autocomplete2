@@ -17,7 +17,7 @@
 /**
  * Code to be executed after the plugin's database scheme has been installed is defined here.
  *
- * @package     local_autocomplete
+ * @package     local_autocomplete2
  * @category    upgrade
  * @copyright   2019 Titus Learning
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die();
 /**
  * Custom code to be run on installing the plugin.
  */
-function xmldb_local_autocomplete_install() {
+function xmldb_local_autocomplete2_install() {
 
     return true;
 }
