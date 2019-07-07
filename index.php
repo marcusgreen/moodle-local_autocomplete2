@@ -37,7 +37,7 @@ class local_autocomplete_form extends moodleform {
         $options['placeholder'] = optional_param('placeholder','',PARAM_TEXT);
         $options['casesensitive'] = optional_param('casesensitive','',PARAM_TEXT);
         $options['noselectionstring'] = optional_param('noselectionstring','',PARAM_TEXT);
-        $options['showsuggestions'] = optional_param('showsuggestions','',PARAM_BOOL);
+        $options['showsuggestions'] = optional_param('showsuggestions',true,PARAM_BOOL);
         $options['searchableselector'] = optional_param('searchableselector','',PARAM_BOOL);
 
         $data = ['1'=>'alpha','2'=>'bravo','3'=>'charlie','4'=>'delta','5'=>'zebra'];          
