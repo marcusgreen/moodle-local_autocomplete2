@@ -37,13 +37,20 @@ class local_autocomplete_form extends moodleform {
         $options['placeholder'] = optional_param('placeholder','',PARAM_TEXT);
         $options['casesensitive'] = optional_param('casesensitive','',PARAM_TEXT);
         $options['noselectionstring'] = optional_param('noselectionstring','',PARAM_TEXT);
+        $options['showsuggestions'] = optional_param('showsuggestions','',PARAM_BOOL);
 
-        $data = ['1'=>'one','2'=>'two','3'=>'three','4'=>'four'];          
-          
+
+        $data = ['1'=>'one','2'=>'two','3'=>'three','4'=>'four','5'=>'five'];          
+        $text = 'This illustrates how the Moodle autocomplete form element can be used. The documentation
+        for it can be found at 
+        <a href=https://docs.moodle.org/dev/lib/formslib.php_Form_Definition#autocomplete>https://docs.moodle.org/dev/lib/formslib.php_Form_Definition#autocomplete</a>';
+        $mform->addElement('html',$text);
         $mform->addElement('autocomplete', 'autosearch', 'Search', $data, $options);
         $mform->addElement('advcheckbox','multiple','multiple');
         $mform->addElement('advcheckbox','tags','tags');
         $mform->addElement('advcheckbox','casesensitive','casesensitive');
+        $mform->addElement('advcheckbox','showsuggestions','showsuggestions');
+        $mform->setDefault('showsuggestions',1);
 
         $mform->addElement('text','placeholder','placeholder');
         $mform->setType('placeholder',PARAM_TEXT);

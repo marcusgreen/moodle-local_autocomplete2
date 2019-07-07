@@ -26,6 +26,9 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'autocomplete2';
-$string['tags'] ='Tags allows the selection/creation of new elements not in the dropdown list';
+$string['tags'] ='(boolean - default false) Tags allows the selection/creation of new elements not in the dropdown list';
 $string['multiple'] = 'Multiple allws the selection and storage of multiple items from the list';
-
+$string['selectionstring'] =" (string - default '') - The text to display when nothing is selected.";
+$string['showselections'] ="(boolean - default true) - Do not show the list of suggestions when the user starts typing.";
+$string['placeholder'] = "(string - default '') - The text to show in the search box when it is empty.";
+$string['casesensitive'] = "(boolean - default false) - Is the search case sensitive ?";
