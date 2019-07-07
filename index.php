@@ -42,8 +42,9 @@ class local_autocomplete_form extends moodleform {
 
         $data = ['1'=>'alpha','2'=>'bravo','3'=>'charlie','4'=>'delta','5'=>'zebra'];          
         $text = 'This illustrates how the Moodle autocomplete form element can be used. The sample data is
-        alpha,bravo,charlie etc. The documentation
-        for it can be found at 
+        alpha,bravo,charlie etc. The source can be found here 
+        https://github.com/marcusgreen/moodle-local_autocomplete2
+        The documentation for it can be found at 
         <a href=https://docs.moodle.org/dev/lib/formslib.php_Form_Definition#autocomplete>https://docs.moodle.org/dev/lib/formslib.php_Form_Definition#autocomplete</a>';
         $mform->addElement('html',$text);
         if ($options['searchableselector']) {
