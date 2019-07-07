@@ -23,7 +23,7 @@
 global $CFG, $PAGE;
 require_once(__DIR__ . '/../../config.php');
 require_once($CFG->libdir . '/formslib.php');
-require_login();
+//require_login();
 
 $PAGE->set_context(context_system::instance());
 $PAGE->set_url('/local/autocomplete.php');
@@ -31,16 +31,25 @@ $PAGE->set_url('/local/autocomplete.php');
 class local_autocomplete_form extends moodleform {
     protected function definition() {
         $mform = $this->_form;
-        $multiple = optional_param('multiple',false,PARAM_BOOL);
-        $data = ['1'=>'one','2'=>'two','3'=>'three'];          
-        $options = [    
-            'noselectionstring' => 'No selection'
-            ]; 
-        if($multiple){
-            $options['multiple']=true;
-        }           
+        $options = [];
+        $options['multiple'] = optional_param('multiple',false,PARAM_BOOL);
+        $options['tags'] = optional_param('tags',false,PARAM_BOOL);
+        $options['placeholder'] = optional_param('placeholder','',PARAM_TEXT);
+        $options['casesensitive'] = optional_param('casesensitive','',PARAM_TEXT);
+        $options['noselectionstring'] = optional_param('noselectionstring','',PARAM_TEXT);
+
+        $data = ['1'=>'one','2'=>'two','3'=>'three','4'=>'four'];          
+          
         $mform->addElement('autocomplete', 'autosearch', 'Search', $data, $options);
         $mform->addElement('advcheckbox','multiple','multiple');
+        $mform->addElement('advcheckbox','tags','tags');
+        $mform->addElement('advcheckbox','casesensitive','casesensitive');
+
+        $mform->addElement('text','placeholder','placeholder');
+        $mform->setType('placeholder',PARAM_TEXT);
+        $mform->addElement('text','noselectionstring','noselectionstring');
+        $mform->setType('noselectionstring',PARAM_TEXT);
+
         $this->add_action_buttons(true,'Go');
 
     }

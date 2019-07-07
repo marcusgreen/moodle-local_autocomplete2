@@ -25,4 +25,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'autocomplete';
+$string['pluginname'] = 'autocomplete2';
+$string['tags'] ='Tags allows the selection/creation of new elements not in the dropdown list';
+$string['multiple'] = 'Multiple allws the selection and storage of multiple items from the list';
+
