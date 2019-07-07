@@ -38,19 +38,29 @@ class local_autocomplete_form extends moodleform {
         $options['casesensitive'] = optional_param('casesensitive','',PARAM_TEXT);
         $options['noselectionstring'] = optional_param('noselectionstring','',PARAM_TEXT);
         $options['showsuggestions'] = optional_param('showsuggestions','',PARAM_BOOL);
+        $options['searchableselector'] = optional_param('searchableselector','',PARAM_BOOL);
 
-
-        $data = ['1'=>'one','2'=>'two','3'=>'three','4'=>'four','5'=>'five'];          
+        $data = ['1'=>'alpha','2'=>'bravo','3'=>'charlie','4'=>'delta','5'=>'zebra'];          
         $text = 'This illustrates how the Moodle autocomplete form element can be used. The documentation
         for it can be found at 
         <a href=https://docs.moodle.org/dev/lib/formslib.php_Form_Definition#autocomplete>https://docs.moodle.org/dev/lib/formslib.php_Form_Definition#autocomplete</a>';
         $mform->addElement('html',$text);
-        $mform->addElement('autocomplete', 'autosearch', 'Search', $data, $options);
+        if ($options['searchableselector']) {
+            $mform->addElement('searchableselector', 'autosearch', 'Search', $data, $options);
+        } else {
+            $mform->addElement('autocomplete', 'autosearch', 'Search', $data, $options);
+        }
         $mform->addElement('advcheckbox','multiple','multiple');
+        $mform->addHelpButton('multiple','multiple','local_autocomplete2');
         $mform->addElement('advcheckbox','tags','tags');
+        $mform->addHelpButton('tags','tags','local_autocomplete2');
         $mform->addElement('advcheckbox','casesensitive','casesensitive');
+        $mform->addHelpButton('casesensitive','casesensitive','local_autocomplete2');
         $mform->addElement('advcheckbox','showsuggestions','showsuggestions');
-        $mform->setDefault('showsuggestions',1);
+        $mform->addHelpButton('showsuggestions','showsuggestions','local_autocomplete2');
+        $mform->setDefault('showsuggestions',true);
+       // $mform->addElement('advcheckbox','searchableselector','searchableselector');
+
 
         $mform->addElement('text','placeholder','placeholder');
         $mform->setType('placeholder',PARAM_TEXT);
