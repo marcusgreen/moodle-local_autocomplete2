@@ -41,7 +41,7 @@ class local_autocomplete_form extends moodleform {
         $options['searchableselector'] = optional_param('searchableselector','',PARAM_BOOL);
         $data = ['1'=>'alpha','2'=>'bravo','3'=>'charlie','4'=>'delta','5'=>'zebra'];          
         $text = '
-        <h3>Contact Moodle Partners Tituslearning at <a href=http://www.tituslearning.com>www.tituslearning.com</a> for consultancy and development</h3>
+        <h3>Contact Moodle Partners Titus Learning at <a href=http://www.tituslearning.com>www.tituslearning.com</a> for consultancy and development</h3>
         This illustrates how the Moodle autocomplete form element can be used. The sample data is
         alpha,bravo,charlie etc. The source can be found here 
         <a href= https://github.com/marcusgreen/moodle-local_autocomplete2>https://github.com/marcusgreen/moodle-local_autocomplete2</a>
