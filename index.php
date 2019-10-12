@@ -14,7 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 /**
- * Run the code checker from the web.
  *
  * @package    local_autocomplete
  * @copyright  2019 Marcus Green
@@ -23,7 +22,6 @@
 global $CFG, $PAGE;
 require_once(__DIR__ . '/../../config.php');
 require_once($CFG->libdir . '/formslib.php');
-//require_login();
 
 $PAGE->set_context(context_system::instance());
 $PAGE->set_url('/local/autocomplete.php');
@@ -38,12 +36,15 @@ class local_autocomplete_form extends moodleform {
         $options['casesensitive'] = optional_param('casesensitive','',PARAM_TEXT);
         $options['noselectionstring'] = optional_param('noselectionstring','',PARAM_TEXT);
         $options['showsuggestions'] = optional_param('showsuggestions',true,PARAM_BOOL);
-        $options['searchableselector'] = optional_param('searchableselector','',PARAM_BOOL);
+        $opts = 'options = '.var_export($options,true);
 
+        $options['searchableselector'] = optional_param('searchableselector','',PARAM_BOOL);
         $data = ['1'=>'alpha','2'=>'bravo','3'=>'charlie','4'=>'delta','5'=>'zebra'];          
-        $text = 'This illustrates how the Moodle autocomplete form element can be used. The sample data is
+        $text = '
+        <h3>Contact Moodle Partners Tituslearning at <a href=http://www.tituslearning.com>www.tituslearning.com</a> for consultancy and development</h3>
+        This illustrates how the Moodle autocomplete form element can be used. The sample data is
         alpha,bravo,charlie etc. The source can be found here 
-        https://github.com/marcusgreen/moodle-local_autocomplete2
+        <a href= https://github.com/marcusgreen/moodle-local_autocomplete2>https://github.com/marcusgreen/moodle-local_autocomplete2</a>
         The documentation for the autocomplete element can be found at 
         <a href=https://docs.moodle.org/dev/lib/formslib.php_Form_Definition#autocomplete>https://docs.moodle.org/dev/lib/formslib.php_Form_Definition#autocomplete</a>';
         $mform->addElement('html',$text);
@@ -52,6 +53,7 @@ class local_autocomplete_form extends moodleform {
         } else {
             $mform->addElement('autocomplete', 'autosearch', 'Search', $data, $options);
         }
+        $mform->addElement('html', $opts);
         $mform->addElement('advcheckbox','multiple','multiple');
         $mform->addHelpButton('multiple','multiple','local_autocomplete2');
         $mform->addElement('advcheckbox','tags','tags');
@@ -61,7 +63,7 @@ class local_autocomplete_form extends moodleform {
         $mform->addElement('advcheckbox','showsuggestions','showsuggestions');
         $mform->addHelpButton('showsuggestions','showsuggestions','local_autocomplete2');
         $mform->setDefault('showsuggestions',true);
-       // $mform->addElement('advcheckbox','searchableselector','searchableselector');
+        $mform->addElement('advcheckbox','searchableselector','searchableselector');
 
         $mform->addElement('text','placeholder','placeholder');
         $mform->setType('placeholder',PARAM_TEXT);
@@ -69,6 +71,8 @@ class local_autocomplete_form extends moodleform {
         $mform->setType('noselectionstring',PARAM_TEXT);
 
         $this->add_action_buttons(true,'Go');
+        $mform->addElement('html','Press the Go button to reset the configurations');
+
 
     }
 }
